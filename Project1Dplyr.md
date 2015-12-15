@@ -1,6 +1,4 @@
----
-output: html_document
----
+
 # Reproducible Research: Peer Assessment 1
 The data for this assignment was collected by a personal activity monitoring device.  The data consists of observations of an anonymous individual collected during the
 months of October and November, 2012.  It shows the number of steps taken at 5 minute intervals of the diurnal cycles during the two months.  For some days no data was recorded; that is shown by NAs in the data table.  
@@ -142,7 +140,7 @@ paste("The number of missing values is ",numMissingValues,sep="")
 
 ```r
 # Replace the NA values in the steps variable with sampled values
-set.seed(431)
+set.seed(80677)
 weekendNA<-unique(actDT[,.(steps,date,daytype)][is.na(steps)][daytype=="weekend"][[2]])
 weekdayNA<-unique(actDT[,.(steps,date,daytype)][is.na(steps)][daytype=="weekday"][[2]])
 for(i in seq_along(weekendNA)){
@@ -163,7 +161,7 @@ print(threePlot)
 
 ![plot of chunk unnamed-chunk-4](figure/unnamed-chunk-4-1.png) 
 
-Both the mean and the median with imputed values show an decrease from those without the imputed values.
+The mean with imputed values shows an decrease from those without the imputed values, while the median is unchanged.
 
 
 ```r
@@ -172,7 +170,7 @@ paste("The mean with imputed values is",round(mean(actDT[,sum(steps),by=date][[2
 ```
 
 ```
-## [1] "The mean with imputed values is 10705.7"
+## [1] "The mean with imputed values is 10714.52"
 ```
 
 ```r
@@ -180,7 +178,7 @@ paste("The median with imputed values is",median(actDT[,sum(steps),by=date][[2]]
 ```
 
 ```
-## [1] "The median with imputed values is 10600"
+## [1] "The median with imputed values is 10765"
 ```
 
 ## Are there differences in activity patterns between weekdays and weekends?
