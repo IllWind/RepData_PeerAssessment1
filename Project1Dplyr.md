@@ -161,7 +161,7 @@ print(threePlot)
 
 ![plot of chunk unnamed-chunk-4](figure/unnamed-chunk-4-1.png) 
 
-The mean with imputed values shows an decrease from those without the imputed values, while the median is unchanged.
+The mean with imputed values shows an decrease from that without the imputed values, while the median is unchanged.
 
 
 ```r
